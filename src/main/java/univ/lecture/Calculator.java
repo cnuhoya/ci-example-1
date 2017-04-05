@@ -1,6 +1,6 @@
 package univ.lecture;
 
-import java.util.ArrayList;
+import java.util.Stack;
 import java.util.StringTokenizer;
 
 /**
@@ -21,7 +21,25 @@ public class Calculator {
 	}
 	
 	public int RPN(String[] args) {
-		return 0;
+		int result = 0;
+		Stack stack = new Stack();
+		
+		for (int i = 0; i < args.length; i++) {
+			String input = args[i];
+
+			System.out.print(input + " ");
+
+			if (isAnOperator(input)) {
+				double y = Double.parseDouble((String) stack.pop());
+				double x = Double.parseDouble((String) stack.pop());
+				double z = evaluate(x, y, input);
+				result = (int)z;
+				stack.push("" + z);
+			} else
+				stack.push(input);
+		}
+		System.out.println("결과값은 : " + result + "입니다.");
+		return result;
 	}
 	
 	private boolean isAnOperator(String s) {
