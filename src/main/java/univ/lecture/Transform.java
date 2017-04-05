@@ -12,12 +12,14 @@ public class Transform {
 		Stack stack = new Stack<>();
 		String[] post = new String[args.length];
 		for (int i = 0; i < args.length; i++) {
-			if (precedence(args[i]) == 2
-					|| precedence(args[i]) == 4) {/* ()ASMD가 나왔을 때 */
+			if (precedence(args[i]) == 0 || precedence(args[i]) == 2 || precedence(args[i]) == 4
+					|| precedence(args[i]) == 9) {/* ()ASMD가 나왔을 때 */
 				if (precedence(args[i]) == 2) {/* A+ S- 일때 */
 					while (!stack.isEmpty() && precedence(args[i]) <= precedence((String) stack.peek())) {
 						if (precedence((String) stack.peek()) == 2 || precedence((String) stack.peek()) == 4) {
 							post[index++] = (String) stack.pop();
+						} else if (precedence((String) stack.peek()) == 0) {
+							stack.push(args[i]);
 						}
 					}
 					stack.push(args[i]);
@@ -30,15 +32,18 @@ public class Transform {
 							stack.push(args[i]);
 						}
 					}
-					if (precedence((String) stack.peek()) == 2) {
+					if (precedence((String) stack.peek()) == 2 || precedence((String) stack.peek()) == 0) {
 						stack.push(args[i]);
 					}
 				}
+
 			} else
 				/* 문자가 아닌 숫자일 경우 a배열에 저장 */
 				post[index++] = args[i];
 		}
+
 		String[] postfix = post;
+
 		return postfix;
 	}
 
