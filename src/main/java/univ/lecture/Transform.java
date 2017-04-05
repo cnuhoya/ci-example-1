@@ -66,6 +66,15 @@ public class Transform {
 	}
 
 	public int precedence(String token) {
-		return 0;
+		if (token.equals("(")) {
+			return 0;
+		} else if (token.equals("A") || token.equals("S")) {
+			return 2;
+		} else if (token.equals("M") || token.equals("D")) {
+			return 4;
+		} else if (token.equals(")")) {
+			return 9;
+		}
+		return -1;
 	}
 }
