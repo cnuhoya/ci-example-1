@@ -56,7 +56,12 @@ public class Transform {
 		}
 
 		String[] postfix = post;
-
+		post = new String[index];
+		System.arraycopy(postfix, 0, post, 0, index);
+		for (int k = 0; k < post.length; k++) {
+			System.out.print(post[k] + " ");
+		}
+		System.out.println();
 		return postfix;
 	}
 
