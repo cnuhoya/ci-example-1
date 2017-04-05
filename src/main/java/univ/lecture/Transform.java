@@ -24,9 +24,9 @@ public class Transform {
 	public int precedence(String token) {
 		if (token.equals("(")) {
 			return 0;
-		} else if (token.equals("A") || token.equals("S")) {
+		} else if (token.equals("+") || token.equals("-")) {
 			return 2;
-		} else if (token.equals("M") || token.equals("D")) {
+		} else if (token.equals("*") || token.equals("/")) {
 			return 4;
 		} else if (token.equals(")")) {
 			return 9;
