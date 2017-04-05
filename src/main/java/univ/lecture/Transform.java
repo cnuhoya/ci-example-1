@@ -9,9 +9,10 @@ public class Transform {
 	public String[] infixToPostfix(String[] args) {
 		// 중위식을 후위식으로 변환한 결과를 String 배열로 반환하는 코드를 작성하고,
 		// 마지막에 변환된 후위식을 출력함.
-		Stack stack = new Stack<String>();
+		Stack stack = new Stack<>();
 		String[] post = new String[args.length];
 		for (int i = 0; i < args.length; i++) {
+
 			if (precedence(args[i]) == 0 || precedence(args[i]) == 2 || precedence(args[i]) == 4
 					|| precedence(args[i]) == 9) {/* ()ASMD가 나왔을 때 */
 				if (stack.isEmpty()) {
@@ -26,7 +27,6 @@ public class Transform {
 							stack.push(args[i]);
 						}
 					}
-
 					stack.push(args[i]);
 				} else if (precedence(args[i]) == 4) {/* D/ M* 일때 */
 					while (!stack.isEmpty() && precedence(args[i]) <= precedence((String) stack.peek())) {
@@ -37,17 +37,25 @@ public class Transform {
 							stack.push(args[i]);
 						}
 					}
-				} else if (precedence(args[i]) == 9) {/* )나왔을때 */
+					if (precedence((String) stack.peek()) == 2 || precedence((String) stack.peek()) == 0) {
+						stack.push(args[i]);
+					}
+				}
+
+				else if (precedence(args[i]) == 9) {/* )나왔을때 */
 					while (!stack.peek().equals("(")) {
 						post[index++] = (String) stack.pop();
 					}
 					stack.pop();/* "(" pop시킴 */
-				} else
-					/* 문자가 아닌 숫자일 경우 post배열에 저장 */
-					post[index++] = args[i];
-			}
+				}
+			} else
+				/* 문자가 아닌 숫자일 경우 a배열에 저장 */
+				post[index++] = args[i];
 		}
-		return post;
+
+		String[] postfix = post;
+
+		return postfix;
 	}
 
 	public int precedence(String token) {
