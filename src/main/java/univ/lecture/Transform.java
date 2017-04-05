@@ -12,7 +12,9 @@ public class Transform {
 		Stack stack = new Stack<String>();
 		String[] post = new String[args.length];
 		for (int i = 0; i < args.length; i++) {
-			if (precedence(args[i]) == 0 || precedence(args[i]) == 2 || precedence(args[i]) == 4
+			if (stack.isEmpty()) {
+				stack.push(args[i]);
+			} else if (precedence(args[i]) == 0 || precedence(args[i]) == 2 || precedence(args[i]) == 4
 					|| precedence(args[i]) == 9) {/* ()ASMD가 나왔을 때 */
 				if (precedence(args[i]) == 2) {/* A+ S- 일때 */
 					while (!stack.isEmpty() && precedence(args[i]) <= precedence((String) stack.peek())) {
