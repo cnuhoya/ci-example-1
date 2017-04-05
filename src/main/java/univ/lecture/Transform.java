@@ -22,8 +22,10 @@ public class Transform {
 	}
 
 	public int precedence(String token) {
-		if(token.equals("A") || token.equals("S")){
+		if (token.equals("A") || token.equals("S")) {
 			return 2;
+		} else if (token.equals("M") || token.equals("D")) {
+			return 4;
 		}
 		return -1;
 	}
