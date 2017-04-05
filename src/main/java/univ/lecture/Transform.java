@@ -14,7 +14,9 @@ public class Transform {
 		for (int i = 0; i < args.length; i++) {
 			if (precedence(args[i]) == 0 || precedence(args[i]) == 2 || precedence(args[i]) == 4
 					|| precedence(args[i]) == 9) {/* ()ASMD가 나왔을 때 */
-				if (precedence(args[i]) == 2) {/* A+ S- 일때 */
+				if (precedence(args[i]) == 0) {/* ( 일때 */
+					stack.push(args[i]);
+				} else if (precedence(args[i]) == 2) {/* A+ S- 일때 */
 					while (!stack.isEmpty() && precedence(args[i]) <= precedence((String) stack.peek())) {
 						if (precedence((String) stack.peek()) == 2 || precedence((String) stack.peek()) == 4) {
 							post[index++] = (String) stack.pop();
@@ -37,6 +39,12 @@ public class Transform {
 					}
 				}
 
+				else if (precedence(args[i]) == 9) {/* )나왔을때 */
+					while (!stack.peek().equals("(")) {
+						post[index++] = (String) stack.pop();
+					}
+					stack.pop();/* "(" pop시킴 */
+				}
 			} else
 				/* 문자가 아닌 숫자일 경우 a배열에 저장 */
 				post[index++] = args[i];
