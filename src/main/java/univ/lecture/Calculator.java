@@ -43,7 +43,7 @@ public class Calculator {
 	}
 	
 	private boolean isAnOperator(String s) {
-		return false;
+		return (s.length() == 1 && "+*-/".indexOf(s) >= 0);
 	}
 
 	private double evaluate(double x, double y, String op) {
