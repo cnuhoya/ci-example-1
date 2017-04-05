@@ -49,6 +49,18 @@ public class Calculator {
 	private double evaluate(double x, double y, String op) {
 		double z = 0;
 
+		if (op.equals("+"))
+			z = x + y;
+		else if (op.equals("-"))
+			z = x - y;	
+		else if (op.equals("*"))
+			z = x * y;
+		else 
+			z = x / y;
+
+	     System.out.println(x + " " + op + " " + y + " = " + z);
+
+		
 		return z;
 	}
 
