@@ -51,6 +51,9 @@ public class Transform {
 				/* 문자가 아닌 숫자일 경우 a배열에 저장 */
 				post[index++] = args[i];
 		}
+		while (!stack.isEmpty()) {
+			post[index++] = (String) stack.pop();
+		}
 
 		String[] postfix = post;
 
