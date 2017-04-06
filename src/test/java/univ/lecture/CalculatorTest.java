@@ -52,6 +52,8 @@ public class CalculatorTest {
         Calculator calc = new Calculator();
         int output = calc.calculate("(10*3)+5*(3-7)");
         assertThat(output, is(10));
+        output = calc.calculate("8+2*4*(9+(5-1))");
+		assertThat(output, is(112));
     }
     
     
