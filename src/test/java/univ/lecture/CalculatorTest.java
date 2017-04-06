@@ -34,6 +34,8 @@ public class CalculatorTest {
         Calculator calc = new Calculator();
         int output = calc.calculate("4*5");
         assertThat(output, is(20));
+        output = calc.calculate("5*6*7");
+        assertThat(output, is(20));
     }
     
     @Test
