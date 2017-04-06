@@ -6,6 +6,16 @@ import java.util.StringTokenizer;
 /**
  * Created by tchi on 2017. 3. 19..
  */
+
+/*
+ * Practice Coding Team3
+ * 201302387 김진혁
+ * 201302491 최광호
+ * 201302476 전성배
+ * 201302467 이충완
+ * 
+ * */
+
 public class Calculator {
 	public int calculate(String exp) {
 
