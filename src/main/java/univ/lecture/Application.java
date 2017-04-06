@@ -14,6 +14,14 @@
  * limitations under the License.
  */
 
+/*
+ * Practice Coding Team3
+ * 201302387 김진혁
+ * 201302491 최광호
+ * 201302476 전성배
+ * 201302467 이충완
+ * 
+ * */
 package univ.lecture;
 
 public class Application {
