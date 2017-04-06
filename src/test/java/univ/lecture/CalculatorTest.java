@@ -38,7 +38,7 @@ public class CalculatorTest {
     }
     
     @Test
-    public void testCalculatorComplex () {
+    public void testCalculatorAll () {
         Calculator calc = new Calculator();
         int output = calc.calculate("(10*3)+5*(3-7)");
         assertThat(output, is(10));
