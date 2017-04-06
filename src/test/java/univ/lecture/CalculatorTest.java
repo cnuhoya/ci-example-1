@@ -30,5 +30,12 @@ public class CalculatorTest {
         assertThat(output, is(2));
     }
     
+    @Test
+    public void testCalculatorSub () {
+        Calculator calc = new Calculator();
+        int output = calc.calculate("9-5");
+        assertThat(output, is(4));
+    }
+    
     
 }
