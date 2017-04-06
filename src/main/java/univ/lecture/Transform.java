@@ -22,7 +22,7 @@ public class Transform {
 					stack.push(args[i]);
 				}
 
-				else if (precedence(args[i]) == 2) {/* A+ S- 일때 */
+				else if (precedence(args[i]) == 2) {/* + - 일때 */
 					while (!stack.isEmpty() && precedence(args[i]) <= precedence((String) stack.peek())) {
 						if (precedence((String) stack.peek()) == 2 || precedence((String) stack.peek()) == 4) {
 							postfix[index++] = (String) stack.pop();
@@ -31,15 +31,15 @@ public class Transform {
 						}
 					}
 					stack.push(args[i]);
-				} else if (precedence(args[i]) == 4) {/* D/ M* 일때 */
+				} else if (precedence(args[i]) == 4) {/* / * 일때 */
 					while (!stack.isEmpty() && precedence(args[i]) <= precedence((String) stack.peek())) {
 						if (precedence((String) stack.peek()) == 2) {
 							stack.push(args[i]);
 						} else if (precedence((String) stack.peek()) == 4) {
 							postfix[index++] = (String) stack.pop();
-							stack.push(args[i]);
 						}
 					}
+					stack.push(args[i]);
 					if (precedence((String) stack.peek()) == 2 || precedence((String) stack.peek()) == 0) {
 						stack.push(args[i]);
 					}

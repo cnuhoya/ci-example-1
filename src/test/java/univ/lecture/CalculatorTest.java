@@ -14,6 +14,8 @@ public class CalculatorTest {
         Calculator calc = new Calculator();
         int output = calc.calculate("1+1");
         assertThat(output, is(2));
+        output = calc.calculate("3+6+9");
+        assertThat(output, is(18));
     }
     
     @Test
@@ -21,6 +23,10 @@ public class CalculatorTest {
     	Calculator calc = new Calculator();
     	int output = calc.calculate("9-5");
     	assertThat(output, is(4));
+    	output = calc.calculate("3-7");
+    	assertThat(output, is(-4));
+    	output = calc.calculate("10-8-6");
+    	assertThat(output, is(-4));
     }
     
     @Test
@@ -28,12 +34,16 @@ public class CalculatorTest {
         Calculator calc = new Calculator();
         int output = calc.calculate("4*5");
         assertThat(output, is(20));
+        output = calc.calculate("5*6*7");
+        assertThat(output, is(210));
     }
     
     @Test
     public void testCalculatorDiv () {
         Calculator calc = new Calculator();
         int output = calc.calculate("8/4");
+        assertThat(output, is(2));
+        output = calc.calculate("8/4/2");
         assertThat(output, is(2));
     }
     
@@ -42,6 +52,10 @@ public class CalculatorTest {
         Calculator calc = new Calculator();
         int output = calc.calculate("(10*3)+5*(3-7)");
         assertThat(output, is(10));
+        output = calc.calculate("8+2*4*(9+(5-1))");
+		assertThat(output, is(112));
+		output = calc.calculate("3+5*((8-2)+7)*6");
+		assertThat(output, is(393));
     }
     
     
