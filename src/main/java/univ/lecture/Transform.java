@@ -13,7 +13,7 @@ public class Transform {
 		for (int i = 0; i < args.length; i++) {
 
 			if (precedence(args[i]) == 0 || precedence(args[i]) == 2 || precedence(args[i]) == 4
-					|| precedence(args[i]) == 9) {/* ()ASMD가 나왔을 때 */
+					|| precedence(args[i]) == 9) {/* ()+-/*가 나왔을 때 */
 				if (stack.isEmpty()) {
 					stack.push(args[i]);
 				}
@@ -63,10 +63,7 @@ public class Transform {
 		String[] temppostfix = postfix;
 		postfix = new String[index];
 		System.arraycopy(temppostfix, 0, postfix, 0, index);
-		for (int k = 0; k < postfix.length; k++) {
-			System.out.print(postfix[k] + " ");
-		}
-		System.out.println();
+
 		return postfix;
 	}
 

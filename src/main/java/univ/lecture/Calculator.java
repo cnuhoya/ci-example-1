@@ -27,8 +27,6 @@ public class Calculator {
 		for (int i = 0; i < args.length; i++) {
 			String input = args[i];
 
-			System.out.print(input + " ");
-
 			if (isAnOperator(input)) {
 				double y = Double.parseDouble((String) stack.pop());
 				double x = Double.parseDouble((String) stack.pop());
@@ -38,7 +36,6 @@ public class Calculator {
 			} else
 				stack.push(input);
 		}
-		System.out.println("결과값은 : " + result + "입니다.");
 		return result;
 	}
 	
@@ -57,8 +54,6 @@ public class Calculator {
 			z = x * y;
 		else 
 			z = x / y;
-
-	     System.out.println(x + " " + op + " " + y + " = " + z);
 
 		
 		return z;
