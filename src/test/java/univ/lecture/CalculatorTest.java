@@ -23,6 +23,8 @@ public class CalculatorTest {
     	Calculator calc = new Calculator();
     	int output = calc.calculate("9-5");
     	assertThat(output, is(4));
+    	output = calc.calculate("3-7");
+    	assertThat(output, is(-4));
     }
     
     @Test
