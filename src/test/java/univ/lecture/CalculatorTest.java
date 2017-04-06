@@ -14,6 +14,8 @@ public class CalculatorTest {
         Calculator calc = new Calculator();
         int output = calc.calculate("1+1");
         assertThat(output, is(2));
+        output = calc.calculate("3+6+9");
+        assertThat(output, is(18));
     }
     
     @Test
