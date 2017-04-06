@@ -10,7 +10,7 @@ public class Calculator {
 	public int calculate(String exp) {
 
 		StringTokenizer token = new StringTokenizer(exp, "+-*/()", true);
-		String[] expToArray = new String[exp.length()];
+		String[] expToArray = new String[token.countTokens()];
 
 		for(int i = 0; token.hasMoreTokens(); i++){
 			expToArray[i] = token.nextToken();
