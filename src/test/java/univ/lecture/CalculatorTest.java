@@ -25,6 +25,8 @@ public class CalculatorTest {
     	assertThat(output, is(4));
     	output = calc.calculate("3-7");
     	assertThat(output, is(-4));
+    	output = calc.calculate("10-8-6");
+    	assertThat(output, is(-4));
     }
     
     @Test
