@@ -43,6 +43,8 @@ public class CalculatorTest {
         Calculator calc = new Calculator();
         int output = calc.calculate("8/4");
         assertThat(output, is(2));
+        output = calc.calculate("8/4/2");
+        assertThat(output, is(2));
     }
     
     @Test
