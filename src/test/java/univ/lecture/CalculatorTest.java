@@ -17,6 +17,13 @@ public class CalculatorTest {
     }
     
     @Test
+    public void testCalculatorSub () {
+    	Calculator calc = new Calculator();
+    	int output = calc.calculate("9-5");
+    	assertThat(output, is(4));
+    }
+    
+    @Test
     public void testCalculatorMul () {
         Calculator calc = new Calculator();
         int output = calc.calculate("4*5");
@@ -31,11 +38,14 @@ public class CalculatorTest {
     }
     
     @Test
-    public void testCalculatorSub () {
+    public void testCalculatorComplex () {
         Calculator calc = new Calculator();
-        int output = calc.calculate("9-5");
-        assertThat(output, is(4));
+        int output = calc.calculate("(10*3)+5*(3-7)");
+        assertThat(output, is(10));
     }
+    
+    
+    
     
     
 }
