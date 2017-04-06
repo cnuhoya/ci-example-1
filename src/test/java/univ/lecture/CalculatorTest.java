@@ -17,9 +17,18 @@ public class CalculatorTest {
     }
     
     @Test
-    public void testCalculatorMult () {
+    public void testCalculatorMul () {
         Calculator calc = new Calculator();
         int output = calc.calculate("4*5");
         assertThat(output, is(20));
     }
+    
+    @Test
+    public void testCalculatorDiv () {
+        Calculator calc = new Calculator();
+        int output = calc.calculate("8/4");
+        assertThat(output, is(2));
+    }
+    
+    
 }
