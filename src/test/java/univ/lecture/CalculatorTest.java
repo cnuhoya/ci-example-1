@@ -15,4 +15,11 @@ public class CalculatorTest {
         int output = calc.calculate("1+1");
         assertThat(output, is(2));
     }
+    
+    @Test
+    public void testCalculatorMult () {
+        Calculator calc = new Calculator();
+        int output = calc.calculate("4*5");
+        assertThat(output, is(20));
+    }
 }
